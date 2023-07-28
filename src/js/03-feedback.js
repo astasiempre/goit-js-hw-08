@@ -6,7 +6,7 @@ const messageTextarea = form.querySelector('textarea[name="message"]');
 
 const localStorageKey = 'feedback-form-state';
 
-// Function to save form data to local storage
+
 const saveFormData = throttle(() => {
   const formData = {
     email: emailInput.value,
@@ -15,7 +15,7 @@ const saveFormData = throttle(() => {
   localStorage.setItem(localStorageKey, JSON.stringify(formData));
 }, 500);
 
-// Function to load and set form data from local storage
+
 const loadAndSetFormData = () => {
   const savedData = localStorage.getItem(localStorageKey);
   if (savedData) {
@@ -25,12 +25,12 @@ const loadAndSetFormData = () => {
   }
 };
 
-// Event listener to track input changes and save form data
+
 form.addEventListener('input', () => {
   saveFormData();
 });
 
-// Event listener to clear form and local storage on submit
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = {
@@ -43,5 +43,5 @@ form.addEventListener('submit', (event) => {
   messageTextarea.value = '';
 });
 
-// Load and set form data on page load
+
 loadAndSetFormData();
